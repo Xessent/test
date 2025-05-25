@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Модель + AR (Scene Viewer)</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2em; }
+    model-viewer { width: 100%; max-width: 600px; height: 500px; margin: auto; }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>3D Модель</h2>
+
+  <model-viewer
+    id="viewer"
+    src="https://your-domain.com/models/model.glb"
+    alt="3D модель"
+    camera-controls
+    auto-rotate
+    ar
+    ar-modes="scene-viewer">
+  </model-viewer>
+
+  <button onclick="launchAR()">Перейти в AR (Scene Viewer)</button>
+
+  <script>
+    function launchAR() {
+      const modelUrl = encodeURIComponent('https://your-domain.com/models/model.glb');
+      const sceneViewerUrl = `intent://arvr.google.com/scene-viewer/1.0?file=${modelUrl}&mode=ar_preferred#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://your-domain.com/fallback;end;`;
+
+      window.location.href = sceneViewerUrl;
+    }
+  </script>
+</body>
+</html>
+
