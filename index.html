@@ -24,7 +24,7 @@
 
   <model-viewer
     id="viewer"
-    src="https://your-domain.com/models/model.glb"
+    src="https://xessent.github.io/test/model.glb"
     alt="3D модель"
     camera-controls
     auto-rotate
@@ -36,7 +36,7 @@
 
   <script>
     function launchAR() {
-      const modelUrl = encodeURIComponent('https://your-domain.com/models/model.glb');
+      const modelUrl = encodeURIComponent('https://your-domain.com/models/highres_des_pack.glb');
       const sceneViewerUrl = `intent://arvr.google.com/scene-viewer/1.0?file=${modelUrl}&mode=ar_preferred#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://your-domain.com/fallback;end;`;
 
       window.location.href = sceneViewerUrl;
